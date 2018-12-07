@@ -1,0 +1,135 @@
+<!--
+NAV BAR
+navbar-expand-(min size for expand)
+-->
+<!--
+    <nav class="navbar navbar-expand-sm navbar-dark shadow bg-gradient-primary">
+    <nav class="navbar navbar-expand-sm navbar-light bg-faded">
+-->
+    
+<nav class="navbar navbar-expand-sm navbar-dark shadow sticky-top">
+    
+    <!--Website Title-->
+    <a href="<%= root_path %>" class="navbar-brand align-bottom py-0">
+        <span class="nav-item nav-accent">A</span>
+        <span class="nav-item">W</span>
+        <span class="nav-item nav-accent">S
+            <img src="/assets/logo_w.png" class="nav-item nav-logo mx-0 mb-1" alt="">
+        </span>
+    </a>
+        
+        
+        
+    </div>
+
+
+    <!--button for collapsed mode-->
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#NAVBAR_MINI_INCLUDE">
+        <span class="navbar-toggler-icon"><!--&#9776;--></span>
+    </button>
+
+    <!--MOBILE FIRST APPROACH 
+        so it renders the stuff above first and this is the 'hidden content'
+    -->
+    <div class="collapse navbar-collapse" id="NAVBAR_MINI_INCLUDE">
+        
+        <div class="navbar-nav ml-auto">
+
+            <%= link_to "Home", root_path, class: "nav-link nav-item #{yield(:blog_active)}" %>
+            <%= link_to "About", about_path, class: "nav-link nav-item #{yield(:about_active)}" %>
+            <%= link_to "Contact", contact_path, class: "nav-link nav-item #{yield(:contact_active)}" %>
+            
+            <% if author_signed_in? %>
+          
+                
+                <!--dropdown menu in nav
+                be sure to use separate and nested elements for 
+                .nav-item and .nav-link as shown below.
+                -->
+                
+                <div class="nav-item dropdown">
+                    <a href="#" data-toggle="dropdown" class="author-nav nav-link dropdown-toggle <%=yield(:author) %>">
+                        
+                        <%= current_author.display_name %>
+                        <img src="<%= current_author.gravatar_img_url %>" alt="">
+    
+                    </a>
+    
+                    
+                    <div class="dropdown-menu">
+    
+                        <%= link_to "My Posts", authors_posts_path, class: "dropdown-item" %>
+                        <%= link_to "Account", authors_account_path, class: "dropdown-item" %>
+                        
+                        <div class="dropdown-divider"></div>
+                        <%= link_to "Logout", destroy_author_session_path, method: :delete, class: "dropdown-item" %>
+                        
+                    </div>
+                </div>
+            <% end %>
+        </div>
+
+    </div>
+
+    <!--
+        items that should disappear on collapse
+        <div class="collapse navbar-collapse">
+            <!-- ml-auto = margin left auto (pushes to right)--
+            <div class="ml-auto">
+                
+                <!--
+                    list for nav bar right
+                    <div class="navbar-nav">
+                        <a href="#" class="nav-link nav-item">Products</a>
+                    </div>
+                --
+                
+                <!--forms in navbar--
+                <form class="form-inline">
+                    <!--
+                        <input class="form-control mr-2" type="text" placeholder="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    --
+                    
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Username">
+                    </div>
+                    
+                </form>
+            </div>
+            
+        </div>
+    -->
+</nav>
+
+
+
+<!--
+
+    .navbar-brand for your company, product, or project name.
+    .navbar-nav for a full-height and lightweight navigation (including support for dropdowns).
+    .navbar-toggler for use with our collapse plugin and other navigation toggling behaviors.
+    .form-inline for any form controls and actions.
+    .navbar-text for adding vertically centered strings of text.
+    .collapse.navbar-collapse for grouping and hiding navbar contents by a parent breakpoint.
+    
+    Sometimes you want to use the collapse plugin to trigger hidden content elsewhere on the page. 
+    <div class="pos-f-t">
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+          <h4 class="text-white">Collapsed content</h4>
+          <span class="text-muted">Toggleable via the navbar brand.</span>
+        </div>
+      </div>
+      <nav class="navbar navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </nav>
+    </div>
+
+-->    
+

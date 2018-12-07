@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      <%= yield(:page_title) %> | MySite
+    </title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i|Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"><%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  
+  </head>
+
+  <body>
+    <%= render 'partials/navbar' %>
+    <%#= render 'partials/jumbotron' %>
+    <!--gets the controller rendering the view and action-->
+    <div class="shadow py-3 container <%= controller_name %> <%= action_name %>">
+      
+
+      <!--flash is where we keep anything we want to keep for the view-->
+      <% if flash.any? %>
+      
+      
+      <% flash.keys.each do |key| %>
+      
+      <div class="alert alert-<%= key.to_s %> alert-dismissible" role="alert">
+        <%= flash[key] %>
+        <!--make dismissible "x button"-->
+        <button type="button" class="close" data-dismiss="alert">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <% end %>
+      <% end %>
+        
+      <%= yield %>
+            
+
+
+
+
+    </div>
+
+    <%= render 'partials/footer' %>
+    
+
+    
+    <script src='/assets/page_init.js'></script>
+    
+    <!--Rich text editing for authors-->
+    <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
+    
+  </body>
+</html>

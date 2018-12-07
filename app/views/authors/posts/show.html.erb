@@ -1,0 +1,63 @@
+<!--
+    only showing one post at a time
+-->
+<% provide(:page_title, @post.title) %>
+<% provide(:author, "active") %>
+
+<div>
+    <%= link_to 'Edit', edit_authors_post_path(@post), class: 'btn btn-sm btn-warning' %>
+    <%= link_to 'Remove', authors_post_path(@post), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-sm btn-danger' %>
+</div>
+
+<div class="row mb-3">
+  <div class="col">
+
+    <div class="text-center">
+      <h1><%= @post.title %></h1>
+      
+      <h3 class="text-muted">
+        Created: <%= @post.date_created %> | 
+        Published: <%= @post.date_published %> | 
+        Last Updated: <%= @post.date_updated %>
+      </h3>
+
+    </div>
+    
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-8 mx-auto">
+      <%= @post.body.html_safe %>
+  </div>
+</div>
+
+
+<!--
+
+  <p id="notice"><%#= notice %></p>
+  
+  <p>
+    <strong>Title:</strong>
+    <%#= @post.title %>
+  </p>
+  
+  <p>
+    <strong>Body:</strong>
+    <%#= @post.body %>
+  </p>
+  
+  <p>
+    <strong>Description:</strong>
+    <%#= @post.description %>
+  </p>
+  
+  <p>
+    <strong>Slug:</strong>
+    <%#= @post.slug %>
+  </p>
+  
+  <%#= link_to 'Edit', edit_post_path(@post) %> |
+  <%#= link_to 'Back', posts_path %>
+-->
+  

@@ -1,0 +1,30 @@
+<!--
+all posts in database
+-->
+<% provide(:page_title, "All Posts") %>
+<% provide(:blog_active, "active") %>
+
+<!--
+  card-deck card-group or card-columns div
+-->
+<div class="row">
+  <%= render @posts %>
+</div>
+  
+<div class="col-2 mx-auto">
+
+  <!--
+    Usage
+    The following options are available (in addition to the options available in will_paginate):
+    :list_classes = ['pagination']    # Array of classes
+    :aria_label = 'Page Navigation'   # The aria label to use in the Nav tag
+    :previous_label = '&laquo;'       # Previous page label
+    :next_label = '&raquo;'           # Next page label
+
+    .apple_pagination
+    .flickr_pagination 
+    .pagination
+  -->
+  
+  <%= will_paginate @posts, list_classes: ['pagination'], container: false %>
+</div>

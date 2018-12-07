@@ -1,0 +1,85 @@
+<!--
+    only showing one post at a time
+-->
+<% provide(:page_title, @post.title) %>
+<% provide(:blog_active, "active") %>
+
+
+<div class="row mt-3">
+  <div class="col-sm-9 mx-auto">
+    
+           <!--
+                <div class="thin-text small">
+                    <!--remeber to sanitize tag input--
+                    <%#= raw post.tags.map { |t| link_to t.name, posts_path(tag: t.name) }.join(', ') %>
+                </div>
+            -->
+         
+ 
+    <!--
+      <img alt="" class="card-img-top card-topper" src="#{< #post.banner_image_url %>}"
+      render tags somewhere
+    -->
+
+    <div class="text-center">
+      <h1><%= @post.title %></h1>
+      <hr>
+      
+      <h6 class="text-muted text-thin">
+        Published: <%= @post.date_published %> | 
+        Updated: <%= @post.date_updated %>
+      </h6>
+      <hr>
+        
+    </div>
+      
+ 
+    <div class="col py-3">
+
+      <%= @post.body.html_safe %>
+    </div>
+    
+    <!--Comments-->
+    <div id="disqus_thread"></div>
+    Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+      </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+  BREAKPOINT to type in ruby code to console
+  <%# binding.pry %>
+-->
+<script>
+  
+  /*
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+
+
+ var disqus_config = function () {
+   this.page.url = '<%= request.original_url%>';  // Replace PAGE_URL with your page's canonical URL variable
+   this.page.identifier = '<%= @post.slug %>'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://boz-2.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+                      
+
+  

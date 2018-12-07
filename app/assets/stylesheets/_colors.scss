@@ -1,0 +1,64 @@
+
+
+
+/*
+var grad_dictionary = {
+    "peach"          :['253,    196,    105',   '253,   120,    105'],
+    "purple"         :['233,    114,    203',   '142,   114,    234'],
+    "redblue"        :['255,    0,      0',     '0,     0,      255'], 
+    "sunset"         :['230,    100,    101',   '145,   152,    229'],
+    "sunrise"        :['0,      47,     75',    '220,   66,     37' ],
+    "blue"           :['72,     179,    234',   '54,    90,     173'],
+    "aqua"           :['43,     168,    238',   '44,    236,    179'],
+    "warm_flame"     :['251,    163,	166',   '251,	201,	191'],	
+    "juicypeach"     :['252,    233,	209',   '252,	185,	164'],	
+    "sunny_morning"  :['248,	167,	132',   '248,	202,	113'],
+    "frozen_dreams"  :['251,	204,	240',   '231,	221,	233'],
+    "heavy_rain"     :['208,	217,	223',   '226,	234,	239'],	
+    "deep_blue"      :['156,	198,	250',   '211,	196,	250'],	
+    "morpheus_den"   :['60,	    205,	206',   '51,	21,	    104'],
+    "nightfade"      :['165,	144,	208',   '245,	192,	232'],	
+    "young_passion"  :['254,	136,	125',   '178,	50,	    94' ],
+    "lady_lips"      :['253,	157,	162',   '253,	206,	235'],	
+    "dusty_grass"    :['162,	233,	158',   '203,	246,	134'],	
+    "amy_crisp"      :['233,	138,	151',   '179,	182,	234'],	
+    "ripe_malinka"   :['242,	98,	    131',   '239,	141,	229'],	
+    "rare_wind"      :['171,	237,	234',   '251,	215,	227'],	
+    "spring_warmth"  :['254,	209,	253',   '249,	208,	198'],	
+    "rainy"          :['249,	195,	234',   '168,	194,	236'],	
+    "winter_neva"    :['168,	202,	252',   '190,	228,	250'],	
+    "azure"          :['138,	243,	188',   '145,	216,	232'],	
+    "meanfruit"      :['245,	191,	161',   '218,	139,	221'],
+    "cloudy"         :['235,	235,	235',   '250,	250,	250'],	
+    "near_moon"      :['103,	228,	222',   '177,	146,	200'],
+};
+*/
+
+
+//sunny morning
+$grad_main_0: rgb(248,	202,	113);
+$grad_main_1: rgb(248,	167,	132);
+
+//peach
+$grad_main_dark_0: rgb(253, 196, 105);
+$grad_main_dark_1: rgb(253, 120, 105);
+
+//purple
+//$grad_secondary_0: rgb(233,    114,    203);
+//$grad_secondary_1: rgb(142,   114,    234);
+
+//blue           :['72,     179,    234',   '54,    90,     173'],
+$grad_secondary_0: rgb(50,     150,    230);
+$grad_secondary_1: rgb(54,    90,     173);
+    
+
+@function main-gradient($angle, $offset: 0){
+    @return linear-gradient($angle, $grad_main_0 + $offset, $grad_main_1 + $offset);
+}
+@function main-gradient-dark($angle, $offset: 0){
+    @return linear-gradient($angle, $grad_main_dark_0 + $offset, $grad_main_dark_1 + $offset);
+}
+@function secondary-gradient($angle, $offset: 0){
+    @return linear-gradient($angle, $grad_secondary_0 + $offset, $grad_secondary_1 + $offset);
+}
+    
