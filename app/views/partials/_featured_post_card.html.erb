@@ -1,0 +1,30 @@
+<!--whole row when small, else 1/3-->
+<div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+    <div class="card card-featured shadow mx-auto">
+            
+        <%= link_to post do %>
+    
+        <img alt="" class="card-img-top card-topper" src="#{<% post.banner_image_url %>}">
+    
+            <div class="card-body card-block">
+                
+                <!--POST TITLE-->
+                <h5 class="card-title"><%= post.title %></h5>
+                
+                <!--DESCRIPTION-->
+                <h5 class="card-text text-thin text-muted">
+                    <%= truncate(post.description, length: 75) %>
+                </h5>
+
+                <!--AUTHOR-->
+                <small class="text-thin"><%= post.author.name %></small>    
+                <p>
+                    <small class="card-text text-muted text-thin">Published: <%= post.date_published %></small>    
+                    <small> | Updated: <%= post.date_updated %></small>
+                </p>
+             
+            </div>
+            <% end %>
+        </div>
+    </div>
+    

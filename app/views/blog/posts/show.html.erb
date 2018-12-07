@@ -21,14 +21,38 @@
       render tags somewhere
     -->
 
-    <div class="text-center">
+    <div class="">
       <h1><%= @post.title %></h1>
+      <h5 class="text-muted text-thin"><%= @post.description %></h5>
       <hr>
+      <div class="author-bio-little">
+    
+          <div class="row">
+            
+            <div class="col-auto ml-3">
+              
+              <%= image_tag(@post.author.gravatar_img_url) %>
+            </div>
+            <div class="col pt-2 px-0">
+              
+              <h6 class="my-0 py-0">
+                <%= @post.author.name %>
+              </h6>
+        
+            
+                <small class="">
+                <span class="text-muted text-thin">
+                  Published: <%= @post.date_published %>
+                </span>
+                | Updated: <%= @post.date_updated %>
+              </small>
+              
+            </div>
+          </div>
+
+        </div>
       
-      <h6 class="text-muted text-thin">
-        Published: <%= @post.date_published %> | 
-        Updated: <%= @post.date_updated %>
-      </h6>
+      
       <hr>
         
     </div>
@@ -38,6 +62,40 @@
 
       <%= @post.body.html_safe %>
     </div>
+
+
+
+
+        <div class="author-bio">
+    
+          <div class="row">
+            
+            <div class="col-auto mr-auto">
+              
+              <%= image_tag(@post.author.gravatar_img_url) %>
+            </div>
+            <div class="col">
+              
+              <small class="text-thin text-muted">WRITTEN BY:</small>
+              <h4 class="author-name">
+                <%= @post.author.name %>
+              </h4>
+        
+              <h6 class="bio">
+                <%= @post.author.bio %>
+              </h6>
+            </div>
+          </div>
+
+        </div>
+ 
+
+
+
+
+
+
+
     
     <!--Comments-->
     <div id="disqus_thread"></div>
@@ -80,6 +138,12 @@
     (d.head || d.body).appendChild(s);
   })();
   </script>
+
+<br>
+<br>
+<br>
+
+<hr>
                       
 
   

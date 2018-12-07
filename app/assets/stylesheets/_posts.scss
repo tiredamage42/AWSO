@@ -17,7 +17,7 @@ $grad_secondary_1: rgb(142,   114,    234);
 */
 
 .posts.index {
-  .card {
+  .card-featured {
     border: none;
     border-radius: 0;
     border-bottom: 2px solid $grad_secondary_1;
@@ -28,7 +28,7 @@ $grad_secondary_1: rgb(142,   114,    234);
     
     
     .card-topper {
-      height: 256px;
+      height: 232px;
       background-size: cover;
       background-position: center;
     }
@@ -45,13 +45,48 @@ $grad_secondary_1: rgb(142,   114,    234);
       }
     }
   }
-  .card:hover{
+  .card-featured:hover{
     transform: scale(1.025);
     transition: all .25s;
     a {
 
       text-decoration: none;
     }
+  }
+  .post-card {
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid $grad_secondary_1;
+    background-color: rgba(255, 255, 255, .75);
+    
+    height: 128px;
+    transition: all .25s;
+    
+    
+    .card-topper {
+      height: 128px;
+      width: 128px;
+      background-size: cover;
+      background-position: center;
+    }
+    .card-block {
+      
+      .card-title {
+        color: black; 
+        
+      }
+      .card-text {
+        font-size: 0.9rem;
+        color: black; 
+      }
+    }
+  }
+  .post-card:hover{
+    transition: all .25s;
+    a {
+      text-decoration: none;
+    }
+  
   }
 }
 
@@ -76,30 +111,59 @@ $grad_secondary_1: rgb(142,   114,    234);
     }
   }
 }
-
 /*
+$grad_main_0: rgb(248,	202,	113);
+$grad_main_1: rgb(248,	167,	132);
+
+//peach
+$grad_main_dark_0: rgb(253, 196, 105);
+$grad_main_dark_1: rgb(253, 120, 105);
+
+//purple
+$grad_secondary_0: rgb(233,    114,    203);
+$grad_secondary_1: rgb(142,   114,    234);
+
+*/
+
 .posts.show {
   .author-bio {
-    background-color: white;
-    padding: 15px 45px;
-    margin: 30px 0;
+    
+    border-top: 2px solid $grad_secondary_0;
+    border-bottom: 2px solid $grad_secondary_1;
+        
+    padding: 25px 35px;
     img {
       border-radius: 50%;
     }
-    img, h4 {
+    img, .author-name {
       margin-bottom: 10px;
+      //padding: 25px 35px;
+    
     }
-    h4 {
+    .author-name {
       font-weight: bold;
       font-size: 22px;
     }
-    h6 {
+    .bio {
       font-weight: 300;
       font-size: 16px
     }
   }
-}
-*/
 
+  .author-bio-little {
+        
+    img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+
+  }
+
+
+  
+
+
+}
 
 
