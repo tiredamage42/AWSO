@@ -896,25 +896,15 @@ $pre-scrollable-max-height:         340px !default;
 //$print-page-size:                   a3 !default;
 //$print-body-min-width:              map-get($grid-breakpoints, "lg") !default;
 
-
-
-
-
-
-
  @import "bootstrap";
  @import "util";
  @import "navbar";
  @import "posts";
 
  h1, h2, h3, h4, h5, h6 {
-     font-family: 'Raleway', sans-serif;
-    }
-    
-    p {
-        font-family: 'Crimson Text', serif;
-    }
+   font-family: 'Crimson Text', serif;
+}
 
-    /*
-
-*/
+p {
+  font-family: 'Raleway', sans-serif;
+    }

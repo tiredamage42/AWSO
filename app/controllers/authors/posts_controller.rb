@@ -48,7 +48,6 @@ module Authors
 
       def create
         @post = current_author.posts.new(post_params)
-        print 
         respond_to do |format|
           if @post.save
             format.html { redirect_to authors_post_path(@post), notice: 'Post was successfully created.' }
@@ -94,7 +93,6 @@ module Authors
           @post = current_author.posts.friendly.find(params[:id])
         end
     
-        # Never trust parameters from the scary internet, only allow the white list through.
         def post_params
           params.require(:post).permit(:title, :body, :description, :banner_image_url, :tag_list)
         end
